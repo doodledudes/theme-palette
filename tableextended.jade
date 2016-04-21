@@ -1,0 +1,384 @@
+extends ./layout/layout.jade
+
+block content
+  section.content
+    h3
+      | Tables
+      br
+      small A showcase of different components inside tables
+    // START panel
+    .panel.panel-default
+      .panel-heading
+        | Demo Table #1
+        a.pull-right(href='#table-ext-1', data-toggle='collapse')
+          em.fa.fa-minus
+          em.fa.fa-plus
+      // START table-responsive
+      .panel-body
+        .panel-wrapper.collapse.in#table-ext-1
+          .table-responsive
+            table.table.table-bordered.table-hover
+              thead
+                tr
+                  th UID
+                  th Picture
+                  th Username
+                  th First Name
+                  th Last Name
+                  th Email
+                  th Profile
+                  th Last Login
+                  th
+              tbody
+                tr
+                  td 1
+                  td
+                    .media
+                      img.img-responsive.img-circle(src='http://placehold.it/50', alt='Image')
+                  td @twitter
+                  td Larry
+                  td the Bird
+                  td mail@example.com
+                  td.text-center
+                    .radial-bar.radial-bar-25.radial-bar-xs(data-label='25%')
+                  td 1 week
+                  td
+                    .checkbox.cus
+                      label
+                        input(type='checkbox')
+                        span.fa.fa-check
+                tr
+                  td 2
+                  td
+                    .media
+                      img.img-responsive.img-circle(src='http://placehold.it/50', alt='Image')
+                  td @mdo
+                  td Mark
+                  td Otto
+                  td mail@example.com
+                  td.text-center
+                    .radial-bar.radial-bar-50.radial-bar-xs(data-label='50%')
+                  td 25 minutes
+                  td
+                    .checkbox.cus
+                      label
+                        input(type='checkbox')
+                        span.fa.fa-check
+                tr
+                  td 3
+                  td
+                    .media
+                      img.img-responsive.img-circle(src='http://placehold.it/50', alt='Image')
+                  td @fat
+                  td Jacob
+                  td Thornton
+                  td mail@example.com
+                  td.text-center
+                    .radial-bar.radial-bar-80.radial-bar-xs(data-label='80%')
+                  td 10 hours
+                  td
+                    .checkbox.cus
+                      label
+                        input(type='checkbox')
+                        span.fa.fa-check
+      .panel-footer
+        .row
+          .col-lg-2
+            .input-group
+              input.input-sm.form-control(type='text', placeholder='Search')
+              span.input-group-btn
+                button.btn.btn-sm.btn-default(type='button') Search
+          .col-lg-8
+          .col-lg-2
+            .input-group.pull-right
+              select.input-sm.form-control
+                option(value='0') Bulk action
+                option(value='1') Delete
+                option(value='2') Clone
+                option(value='3') Export
+              span.input-group-btn
+                button.btn.btn-sm.btn-default Apply
+      // END table-responsive
+    // END panel
+    // START panel
+    .panel.panel-default
+      .panel-heading
+        | Demo Table #2
+        a.pull-right(href='#table-ext-2', data-toggle='collapse')
+          em.fa.fa-minus
+          em.fa.fa-plus
+      // START table-responsive
+      .panel-body
+        .panel-wrapper.collapse.in#table-ext-2
+          .table-responsive
+            table.table.table-striped.table-bordered.table-hover
+              thead
+                tr
+                  th
+                  th Description
+                  th Active
+              tbody
+                tr
+                  td
+                    .checkbox.cus
+                      label
+                        input(type='checkbox')
+                        span.fa.fa-check
+                  td
+                    .media
+                      a.pull-left(href='javascript:void(0);')
+                        img.media-object.img-responsive.img-circle(src='http://placehold.it/50', alt='')
+                      .media-body
+                        .pull-right.badge.baed-info admin
+                        h4.media-heading Holly Wallace
+                        p Username: holly123
+                        | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+                        |                                     nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  td.text-center
+                    label.switch
+                      input(type='checkbox')
+                      span
+                tr
+                  td
+                    .checkbox.cus
+                      label
+                        input(type='checkbox')
+                        span.fa.fa-check
+                  td
+                    .media
+                      a.pull-left(href='javascript:void(0);')
+                        img.media-object.img-responsive.img-circle(src='http://placehold.it/50', alt='')
+                      .media-body
+                        .pull-right.badge.baed-info writer
+                        h4.media-heading Alexis Foster
+                        p Username: ali89
+                        | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                        |                                     vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  td.text-center
+                    label.switch.rounded
+                      input(type='checkbox', checked='')
+                      span
+                tr
+                  td
+                    .checkbox.cus
+                      label
+                        input(type='checkbox')
+                        span.fa.fa-check
+                  td
+                    .media
+                      a.pull-left(href='javascript:void(0);')
+                        img.media-object.img-responsive.img-circle(src='http://placehold.it/50', alt='')
+                      .media-body
+                        .pull-right.badge.baed-info editor
+                        h4.media-heading Mario Miles
+                        p Username: mariomiles
+                        | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
+                        |                                     ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                  td.text-center
+                    label.switch
+                      input(type='checkbox', checked='')
+                      span
+      .panel-footer
+        .row
+          .col-lg-2
+            .input-group.pull-right
+              select.input-sm.form-control
+                option(value='0') Bulk action
+                option(value='1') Delete
+                option(value='2') Clone
+                option(value='3') Export
+              span.input-group-btn
+                button.btn.btn-sm.btn-default Apply
+          .col-lg-8
+          .col-lg-2.text-right
+            ul.pagination.pagination-sm
+              li.active
+                a(href='javascript:void(0);') 1
+              li
+                a(href='javascript:void(0);') 2
+              li
+                a(href='javascript:void(0);') 3
+              li
+                a(href='javascript:void(0);') »
+      // END table-responsive
+    // END panel
+    // START row
+    .row
+      .col-lg-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            | Demo Table #3
+            a.pull-right(href='#table-ext-3', data-toggle='collapse')
+              em.fa.fa-minus
+              em.fa.fa-plus
+          // START table-responsive
+          .panel-body
+            .panel-wrapper.collapse.in#table-ext-3
+              .table-responsive
+                table.table.table-striped.table-bordered.table-hover
+                  thead
+                    tr
+                      th Task name
+                      th Progress
+                      th Deadline
+                      th Action
+                  tbody
+                    tr
+                      td Nunc luctus, quam non condimentum ornare
+                      td
+                        .progress
+                          .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+                            span.sr-only 60% Complete (success)
+                      td 05/05/2014
+                      td.text-center
+                        .btn-group
+                          a.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                            i.fa.fa-cog
+                          ul.dropdown-menu.pull-right.text-left
+                            li
+                              a(href='javascript:void(0);') Action
+                            li
+                              a(href='javascript:void(0);') Another action
+                            li
+                              a(href='javascript:void(0);') Something else here
+                            li.divider
+                            li
+                              a(href='javascript:void(0);') Separated link
+                    tr
+                      td Integer in convallis felis.
+                      td
+                        .progress
+                          .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 10%')
+                            span.sr-only 10% Complete (danger)
+                      td 15/05/2014
+                      td.text-center
+                        .btn-group
+                          a.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                            i.fa.fa-cog
+                          ul.dropdown-menu.pull-right.text-left
+                            li
+                              a(href='javascript:void(0);') Action
+                            li
+                              a(href='javascript:void(0);') Another action
+                            li
+                              a(href='javascript:void(0);') Something else here
+                            li.divider
+                            li
+                              a(href='javascript:void(0);') Separated link
+                    tr
+                      td Nullam sit amet magna vestibulum libero dapibus iaculis.
+                      td
+                        .progress
+                          .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 50%')
+                            span.sr-only 50% Complete
+                      td 05/10/2014
+                      td.text-center
+                        .btn-group
+                          a.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                            i.fa.fa-cog
+                          ul.dropdown-menu.pull-right.text-left
+                            li
+                              a(href='javascript:void(0);') Action
+                            li
+                              a(href='javascript:void(0);') Another action
+                            li
+                              a(href='javascript:void(0);') Something else here
+                            li.divider
+                            li
+                              a(href='javascript:void(0);') Separated link
+          // END table-responsive
+        // END panel
+      .col-lg-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            | Demo Table #4
+            a.pull-right(href='#table-ext-4', data-toggle='collapse')
+              em.fa.fa-minus
+              em.fa.fa-plus
+          // START table-responsive
+          .panel-body
+            .panel-wrapper.collapse.in#table-ext-4
+              .table-responsive
+                table.table.table-striped.table-bordered.table-hover
+                  thead
+                    tr
+                      th Project
+                      th Activity
+                      th Completion
+                      th Take action
+                  tbody
+                    tr
+                      td Bootstrap 5.x
+                      td
+                        span.inlinesparkline(data-bar-color='danger')
+                          canvas(width='34', height='18', style='display: inline-block; vertical-align: top; width: 34px; height: 18px;')
+                      td
+                        .label.label-danger Canceled
+                      td.text-center
+                        .btn-group
+                          a.btn.btn-default.btn-xs.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                            em.fa.fa-angle-down
+                            | &nbsp;
+                            | Action
+                          ul.dropdown-menu.pull-right.text-left
+                            li
+                              a(href='javascript:void(0);') Cancel
+                            li
+                              a(href='javascript:void(0);') Delay
+                            li
+                              a(href='javascript:void(0);') Re Plan 
+                            li
+                              a(href='javascript:void(0);') Invoke meeting
+                    tr
+                      td Web Engine
+                      td
+                        span.inlinesparkline(data-bar-color='success')
+                          canvas(width='34', height='18', style='display: inline-block; vertical-align: top; width: 34px; height: 18px;')
+                      td
+                        .label.label-success Complete
+                      td.text-center
+                        .btn-group
+                          a.btn.btn-default.btn-xs.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                            em.fa.fa-angle-down
+                            | &nbsp;
+                            | Action
+                          ul.dropdown-menu.pull-right.text-left
+                            li
+                              a(href='javascript:void(0);') Cancel
+                            li
+                              a(href='javascript:void(0);') Delay
+                            li
+                              a(href='javascript:void(0);') Re Plan 
+                            li
+                              a(href='javascript:void(0);') Invoke meeting
+                    tr
+                      td Nullam sit amet
+                      td
+                        span.inlinesparkline(data-bar-color='warning')
+                          canvas(width='34', height='18', style='display: inline-block; vertical-align: top; width: 34px; height: 18px;')
+                      td
+                        .label.label-warning Delayed
+                      td.text-center
+                        .btn-group
+                          a.btn.btn-default.btn-xs.dropdown-toggle(href='javascript:void(0);', data-toggle='dropdown')
+                            em.fa.fa-angle-down
+                            | &nbsp;
+                            | Action
+                          ul.dropdown-menu.pull-right.text-left
+                            li
+                              a(href='javascript:void(0);') Cancel
+                            li
+                              a(href='javascript:void(0);') Delay
+                            li
+                              a(href='javascript:void(0);') Re Plan 
+                            li
+                              a(href='javascript:void(0);') Invoke meeting
+          // END table-responsive
+        // END panel
+    // END row
+  
+  
+block scripts
+  // External Script goes here...

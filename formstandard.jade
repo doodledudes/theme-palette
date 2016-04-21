@@ -1,0 +1,449 @@
+extends ./layout/layout.jade
+
+block content
+  section.content
+    h3
+      | Form Elements
+      br
+      small Standard and custom elements for any form
+    // START panel
+    .panel.panel-default
+      .panel-heading Inline form
+      .panel-body
+        form.form-inline(role='form')
+          .form-group
+            label.sr-only(for='input-email') Email address
+            input#input-email.form-control(type='email', placeholder='Type your email')
+          .form-group
+            label.sr-only(for='input-password') Password
+            input#input-password.form-control(type='password', placeholder='Type your password')
+          .checkbox.cus
+            label
+              input(type='checkbox')
+              span.fa.fa-check
+              | Remember
+          button.btn.btn-default(type='submit') Sign in
+    // END panel
+    // START row
+    .row
+      .col-sm-6
+        // START panel
+        .panel.panel-default
+          .panel-heading Stacked form
+          .panel-body
+            form(role='form')
+              .form-group
+                label Email address
+                input.form-control(type='email', placeholder='Enter email')
+              .form-group
+                label Password
+                input.form-control(type='password', placeholder='Password')
+              .checkbox.cus
+                label
+                  input(type='checkbox', checked='')
+                  span.fa.fa-times
+                  | Check me out
+              button.btn.btn-sm.btn-default(type='submit') Submit
+        // END panel
+      .col-sm-6
+        // START panel
+        .panel.panel-default
+          .panel-heading Horizontal form
+          .panel-body
+            form.form-horizontal
+              .form-group
+                label.col-lg-2.control-label Email
+                .col-lg-10
+                  input.form-control(type='email', placeholder='Email')
+              .form-group
+                label.col-lg-2.control-label Password
+                .col-lg-10
+                  input.form-control(type='password', placeholder='Password')
+              .form-group
+                .col-lg-offset-2.col-lg-10
+                  .checkbox.cus
+                    label
+                      input(type='checkbox', checked='')
+                      span.fa.fa-check
+                      | Remember me
+              .form-group
+                .col-lg-offset-2.col-lg-10
+                  button.btn.btn-sm.btn-default(type='submit') Sign in
+        // END panel
+    // END row
+    // START panel
+    .panel.panel-default
+      .panel-heading Form elements
+      .panel-body
+        form.form-horizontal(method='get', action='/')
+          fieldset
+            legend Classic inputs
+            .form-group
+              label.col-sm-2.control-label Rounded Corners
+              .col-sm-10
+                input.form-control.form-control-rounded(type='text')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label With help
+              .col-sm-10
+                input.form-control(type='text')
+                span.help-block.m-b-none A block of help text that breaks onto a new line and may extend beyond one line.
+          fieldset
+            .form-group
+              label.col-sm-2.control-label(for='input-id-1') Label focus
+              .col-sm-10
+                input#input-id-1.form-control(type='text')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Password
+              .col-sm-10
+                input.form-control(type='password', name='password')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Placeholder
+              .col-sm-10
+                input.form-control(type='text', placeholder='placeholder')
+          fieldset
+            .form-group
+              label.col-lg-2.control-label Disabled
+              .col-lg-10
+                input.form-control(type='text', placeholder='Disabled input here...', disabled='')
+          fieldset
+            .form-group
+              label.col-lg-2.control-label Static control
+              .col-lg-10
+                p.form-control-static email@example.com
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Checkboxes and radios
+              .col-sm-10
+                .checkbox
+                  label
+                    input(type='checkbox', value='')
+                    | Option one is this and that—be sure to include why it's great
+                .radio
+                  label
+                    input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                    | Option one is this and that—be sure to include why it's great
+                .radio
+                  label
+                    input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                    | Option two can be something else and selecting it will deselect option one
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Inline checkboxes
+              .col-sm-10
+                .checkbox.cus-inline
+                  label
+                    input(type='checkbox', value='')
+                    | a
+                .checkbox.cus-inline
+                  label
+                    input(type='checkbox', value='')
+                    | b
+                .checkbox.cus-inline
+                  label
+                    input(type='checkbox', value='')
+                    | c
+          fieldset.last-child
+            .form-group
+              label.col-sm-2.control-label Select
+              .col-sm-10
+                select.form-control.m-b(name='account')
+                  option Option 1
+                  option Option 2
+                  option Option 3
+                  option Option 4
+                br
+                .row
+                  .col-lg-4
+                    select.form-control(multiple='')
+                      option Option 1
+                      option Option 2
+                      option Option 3
+                      option Option 4
+          fieldset
+            legend Input variants
+            .form-group
+              label.col-sm-2.control-label Custom Checkboxes & radios
+              .col-sm-10
+                .checkbox.cus
+                  label
+                    input(type='checkbox', value='')
+                    span.fa.fa-check
+                    | Option one
+                .checkbox.cus
+                  label
+                    input(type='checkbox', checked='', value='')
+                    span.fa.fa-check
+                    | Option two checked
+                .checkbox.cus
+                  label
+                    input(type='checkbox', checked='', disabled='', value='')
+                    span.fa.fa-check
+                    | Option three checked and disabled
+                .checkbox.cus
+                  label
+                    input(type='checkbox', disabled='', value='')
+                    span.fa.fa-check
+                    | Option four disabled
+                .radio.cus
+                  label
+                    input(type='radio', name='a', value='option1')
+                    span.fa.fa-circle
+                    | Option one
+                .radio.cus
+                  label
+                    input(type='radio', name='a', value='option2', checked='')
+                    span.fa.fa-circle
+                    | Option two checked
+                .radio.cus
+                  label
+                    input(type='radio', value='option2', checked='', disabled='')
+                    span.fa.fa-circle
+                    | Option three checked and disabled
+                .radio.cus
+                  label
+                    input(type='radio', name='a', disabled='')
+                    span.fa.fa-circle
+                    | Option four disabled
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Inline checkboxes
+              .col-sm-10
+                .checkbox.cus.cus-inline
+                  label
+                    input(type='checkbox', value='')
+                    span.fa.fa-check
+                    | a
+                .checkbox.cus.cus-inline
+                  label
+                    input(type='checkbox', value='')
+                    span.fa.fa-check
+                    | b
+                .checkbox.cus.cus-inline
+                  label
+                    input(type='checkbox', value='')
+                    span.fa.fa-check
+                    | c
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Rounded
+              .col-sm-10
+                .checkbox.cus-rounded
+                  label
+                    input#roundedcheckbox10(type='checkbox', checked='')
+                    span.fa.fa-check
+                    | Lorem
+                .checkbox.cus-rounded
+                  label
+                    input#roundedcheckbox20(type='checkbox')
+                    span.fa.fa-check
+                    | Ipsum
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Inline radios
+              .col-sm-10
+                .radio.cus.cus-inline
+                  label
+                    input#inlineradio1(type='radio', name='i-radio', value='option1', checked='')
+                    span.fa.fa-circle
+                    | a
+                .radio.cus.cus-inline
+                  label
+                    input#inlineradio1(type='radio', name='i-radio', value='option1', checked='')
+                    span.fa.fa-circle
+                    | b
+                .radio.cus.cus-inline
+                  label
+                    input#inlineradio1(type='radio', name='i-radio', value='option1', checked='')
+                    span.fa.fa-circle
+                    | c
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Custom icons
+              .col-sm-10
+                .radio.cus.cus-inline
+                  label
+                    input#inlineradio1(type='radio', name='c-radio', value='option1', checked='')
+                    span.fa.fa-check
+                    | a
+                .radio.cus.cus-inline
+                  label
+                    input#inlineradio1(type='radio', name='c-radio', value='option1', checked='')
+                    span.fa.fa-user
+                    | b
+                .radio.cus.cus-inline
+                  label
+                    input#inlineradio1(type='radio', name='c-radio', value='option1', checked='')
+                    span.fa.fa-tint
+                    | c
+                br
+                .checkbox.cus.cus-inline
+                  label
+                    input#inlinecheckbox10(type='checkbox', value='option1', checked='')
+                    span.fa.fa-star
+                    | a
+                .checkbox.cus.cus-inline
+                  label
+                    input#inlinecheckbox20(type='checkbox', value='option2', checked='')
+                    span.fa.fa-heart
+                    | b
+                .checkbox.cus.cus-inline
+                  label
+                    input#inlinecheckbox30(type='checkbox', value='option3', checked='')
+                    span.fa.fa-bell
+                    | c
+          fieldset
+            .form-group.has-success
+              label.col-sm-2.control-label Input with success
+              .col-sm-10
+                input.form-control(type='text')
+          fieldset
+            .form-group.has-warning
+              label.col-sm-2.control-label Input with warning
+              .col-sm-10
+                input.form-control(type='text')
+          fieldset
+            .form-group.has-error
+              label.col-sm-2.control-label Input with error
+              .col-sm-10
+                input.form-control(type='text')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Control sizing
+              .col-sm-10
+                input.form-control.input-lg.m-b(type='text', placeholder='.input-lg')
+                br
+                input.form-control.m-b(type='text', placeholder='Default input')
+                br
+                input.form-control.input-sm(type='text', placeholder='.input-sm')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Column sizing
+              .col-sm-10
+                .row
+                  .col-md-2
+                    input.form-control(type='text', placeholder='.col-md-2')
+                  .col-md-3
+                    input.form-control(type='text', placeholder='.col-md-3')
+                  .col-md-4
+                    input.form-control(type='text', placeholder='.col-md-4')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Input groups
+              .col-sm-10
+                .input-group.m-b
+                  span.input-group-addon @
+                  input.form-control(type='text', placeholder='Username')
+                br
+                .input-group.m-b
+                  input.form-control(type='text')
+                  span.input-group-addon .00
+                br
+                .input-group.m-b
+                  span.input-group-addon $
+                  input.form-control(type='text')
+                  span.input-group-addon .00
+                br
+                .input-group.m-b
+                  span.input-group-addon
+                    input(type='checkbox')
+                  input.form-control(type='text')
+                br
+                .input-group
+                  span.input-group-addon
+                    input(type='radio')
+                  input.form-control(type='text')
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Button addons
+              .col-sm-10
+                .input-group.m-b
+                  span.input-group-btn
+                    button.btn.btn-default(type='button') Go!
+                  input.form-control(type='text')
+                br
+                .input-group
+                  input.form-control(type='text')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button') Go!
+          fieldset
+            .form-group
+              label.col-sm-2.control-label With dropdowns
+              .col-sm-10
+                .input-group.m-b
+                  .input-group-btn
+                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                      | Action
+                      span.caret
+                    ul.dropdown-menu
+                      li
+                        a(href='javascript:void(0);') Action
+                      li
+                        a(href='javascript:void(0);') Another action
+                      li
+                        a(href='javascript:void(0);') Something else here
+                      li.divider
+                      li
+                        a(href='javascript:void(0);') Separated link
+                  input.form-control(type='text')
+                br
+                .input-group
+                  input.form-control(type='text')
+                  .input-group-btn
+                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                      | Action
+                      span.caret
+                    ul.dropdown-menu.pull-right
+                      li
+                        a(href='javascript:void(0);') Action
+                      li
+                        a(href='javascript:void(0);') Another action
+                      li
+                        a(href='javascript:void(0);') Something else here
+                      li.divider
+                      li
+                        a(href='javascript:void(0);') Separated link
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Segmented
+              .col-sm-10
+                .input-group.m-b
+                  .input-group-btn
+                    button.btn.btn-default(type='button', tabindex='-1') Action
+                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                      span.caret
+                    ul.dropdown-menu
+                      li
+                        a(href='javascript:void(0);') Action
+                      li
+                        a(href='javascript:void(0);') Another action
+                      li
+                        a(href='javascript:void(0);') Something else here
+                      li.divider
+                      li
+                        a(href='javascript:void(0);') Separated link
+                  input.form-control(type='text')
+                br
+                .input-group
+                  input.form-control(type='text')
+                  .input-group-btn
+                    button.btn.btn-default(type='button', tabindex='-1') Action
+                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                      span.caret
+                    ul.dropdown-menu.pull-right
+                      li
+                        a(href='javascript:void(0);') Action
+                      li
+                        a(href='javascript:void(0);') Another action
+                      li
+                        a(href='javascript:void(0);') Something else here
+                      li.divider
+                      li
+                        a(href='javascript:void(0);') Separated link
+    // END panel
+
+  
+block scripts
+  // External Script goes here...

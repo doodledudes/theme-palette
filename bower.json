@@ -1,0 +1,24 @@
+{
+  "name": "twist-theme-bucket",
+  "authors": [
+    "Rodan Luzuriaga <rodanaluzuriaga@gmail.com>"
+  ],
+  "description": "Theme templates for ToolTwist projects.",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "font-awesome": "^4.5.0",
+    "jquery.cookie": "^1.4.1",
+    "Chart.js": "1.0.2"
+  }
+}

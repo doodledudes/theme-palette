@@ -1,0 +1,90 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+/*html,*/
+.offcanvas-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  display: none;
+}
+.row-offcanvas {
+  height: 100%;
+}
+[data-toggle="offcanvas"] {
+  float: left;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right {
+    right: 0;
+  }
+  .row-offcanvas-left {
+    left: 0;
+  }
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -50%;
+    /* 6 columns */
+  }
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -50%;
+    /* 6 columns */
+  }
+  .row-offcanvas-right.active {
+    right: 50%;
+    /* 6 columns */
+  }
+  .row-offcanvas-left.active {
+    left: 50%;
+    /* 6 columns */
+  }
+  .sidebar-offcanvas {
+    position: fixed;
+    width: 50%;
+    /* 6 columns */
+    height: 100%;
+  }
+  .navbar-brand {
+    margin-left: 42px;
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 448px) {
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -80%;
+    /* 6 columns */
+  }
+  .row-offcanvas-left .sidebar-offcanvas {
+    left: -80%;
+    /* 6 columns */
+  }
+  .row-offcanvas-right.active {
+    right: 80%;
+    /* 6 columns */
+  }
+  .row-offcanvas-left.active {
+    left: 80%;
+    /* 6 columns */
+  }
+  .sidebar-offcanvas {
+    width: 80%;
+  }
+}

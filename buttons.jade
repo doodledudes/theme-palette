@@ -1,0 +1,474 @@
+extends ./layout/layout.jade
+
+block content
+  section.content
+    h3 Buttons
+    // START row
+    .row
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Button colors
+          .panel-body
+            button.btn.btn-default(type='button') Default
+            button.btn.btn-primary(type='button') Primary
+            button.btn.btn-success(type='button') Success
+            button.btn.btn-info(type='button') Info
+            button.btn.btn-warning(type='button') Warning
+            button.btn.btn-danger(type='button') Danger
+            button.btn.btn-inverse(type='button') Inverse
+            br
+            br
+            a.btn.btn-link(href='javascript:void(0);') Button Link
+            button.btn.btn-default(type='button')
+              strong button tag
+            a.btn.btn-default(href='javascript:void(0);')
+              strong anchor tag
+        // END panel
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Button Labeled
+          .panel-body
+            // Success button with label
+            button.btn.btn-success(type='button')
+              i.fa.fa-check
+              | &nbsp;Success
+            // Danger button with label
+            button.btn.btn-danger(type='button')
+              i.fa.fa-times
+              | &nbsp;Danger
+            // Info button with label
+            button.btn.btn-info(type='button')
+              i.fa.fa-exclamation
+              | &nbsp;Info
+            // Warning button with label
+            button.btn.btn-warning(type='button')
+              i.fa.fa-warning
+              | &nbsp;Warning
+            br
+            br
+            // Standard button with label
+            button.btn.btn-default(type='button')
+              i.fa.fa-arrow-left
+              | &nbsp;Left
+            // Standard button with label on the right side
+            button.btn.btn-default(type='button')
+              | Right&nbsp;
+              i.fa.fa-arrow-right
+        // END panel
+    // END row
+    // START row
+    .row
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Button sizing
+          .panel-body
+            .row
+              .col-lg-6
+                p
+                  button.btn.btn-primary.btn-lg(type='button') Large button
+                  button.btn.btn-default.btn-lg(type='button') Large button
+                p
+                  button.btn.btn-primary(type='button') Default button
+                  button.btn.btn-default(type='button') Default button
+              .col-lg-6
+                p
+                  button.btn.btn-primary.btn-sm(type='button') Small button
+                  button.btn.btn-default.btn-sm(type='button') Small button
+                p
+                  button.btn.btn-primary.btn-xs(type='button') Extra small button
+                  button.btn.btn-default.btn-xs(type='button') Extra small button
+        // END panel
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Button group
+          .panel-body
+            p
+            .btn-group
+              button.btn.btn-default(type='button') Left
+              button.btn.btn-default(type='button') Middle
+              button.btn.btn-default(type='button') Right
+            p
+            p
+            .btn-group
+              button.btn.btn-default(type='button') 1
+              button.btn.btn-default(type='button') 2
+              button.btn.btn-default(type='button') 3
+              button.btn.btn-default(type='button') 4
+            .btn-group
+              button.btn.btn-default(type='button') 5
+              button.btn.btn-default(type='button') 6
+              button.btn.btn-default(type='button') 7
+            .btn-group
+              button.btn.btn-default(type='button') 8
+        // END panel
+    // END row
+    
+    // START row
+    .row
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Button dropdown
+          .panel-body
+            // START button group
+            .btn-group
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Default 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Primary 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Success 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-info.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Info 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-warning.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Warning 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Danger 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-inverse.dropdown-toggle(type='button', data-toggle='dropdown')
+                | Inverse 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+        // END panel
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title.ellipsis Split button dropdown
+          .panel-body
+            // START button group
+            .btn-group
+              button.btn.btn-default(type='button') Default
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-primary(type='button') Primary
+              button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-success(type='button') Success
+              button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-info(type='button') Info
+              button.btn.btn-info.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-warning(type='button') Warning
+              button.btn.btn-warning.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-danger(type='button') Danger
+              button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+            // START button group
+            .btn-group
+              button.btn.btn-inverse(type='button') Inverse
+              button.btn.btn-inverse.dropdown-toggle(type='button', data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='javascript:void(0);') Action
+                li
+                  a(href='javascript:void(0);') Another action
+                li
+                  a(href='javascript:void(0);') Something else here
+                li.divider
+                li
+                  a(href='javascript:void(0);') Separated link
+            // END button group
+        // END panel
+    // END row
+    // START row
+    .row
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Pagination
+          .panel-body
+            // START row
+            .row
+              .col-lg-6
+                h4 Default pagination
+                ul.pagination
+                  li
+                    a(href='javascript:void(0);') «
+                  li
+                    a(href='javascript:void(0);') 1
+                  li
+                    a(href='javascript:void(0);') 2
+                  li
+                    a(href='javascript:void(0);') 3
+                  li
+                    a(href='javascript:void(0);') 4
+                  li
+                    a(href='javascript:void(0);') 5
+                  li
+                    a(href='javascript:void(0);') »
+                h4 Disabled and active states
+                ul.pagination
+                  li.disabled
+                    a(href='javascript:void(0);') «
+                  li.active
+                    a(href='javascript:void(0);')
+                      | 1
+                      span.sr-only (current)
+                  li
+                    a(href='javascript:void(0);') 2
+                  li
+                    a(href='javascript:void(0);') 3
+                  li
+                    a(href='javascript:void(0);') 4
+                  li
+                    a(href='javascript:void(0);') 5
+                  li
+                    a(href='javascript:void(0);') »
+              .col-lg-6
+                h4 Size
+                div
+                  ul.pagination.pagination-lg.m0
+                    li
+                      a(href='javascript:void(0);') «
+                    li
+                      a(href='javascript:void(0);') 1
+                    li
+                      a(href='javascript:void(0);') 2
+                    li
+                      a(href='javascript:void(0);') 3
+                    li
+                      a(href='javascript:void(0);') 4
+                    li
+                      a(href='javascript:void(0);') »
+                div
+                  ul.pagination.m0
+                    li
+                      a(href='javascript:void(0);') «
+                    li
+                      a(href='javascript:void(0);') 1
+                    li
+                      a(href='javascript:void(0);') 2
+                    li
+                      a(href='javascript:void(0);') 3
+                    li
+                      a(href='javascript:void(0);') 4
+                    li
+                      a(href='javascript:void(0);') »
+                div
+                  ul.pagination.pagination-sm.m0
+                    li
+                      a(href='javascript:void(0);') «
+                    li
+                      a(href='javascript:void(0);') 1
+                    li
+                      a(href='javascript:void(0);') 2
+                    li
+                      a(href='javascript:void(0);') 3
+                    li
+                      a(href='javascript:void(0);') 4
+                    li
+                      a(href='javascript:void(0);') »
+            // END row
+        // END panel
+      .col-md-6
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Pager
+          .panel-body
+            h4 Alignment
+            ul.pager
+              li
+                a(href='javascript:void(0);') Previous
+              li
+                a(href='javascript:void(0);') Next
+            ul.pager
+              li.previous
+                a(href='javascript:void(0);') ← Older
+              li.next
+                a(href='javascript:void(0);') Newer →
+            h4 Disabled state
+            ul.pager
+              li.previous.disabled
+                a(href='javascript:void(0);') ← Older
+              li.next
+                a(href='javascript:void(0);') Newer →
+        // START panel
+    // END row
+  
+  
+block scripts
+  // External Script goes here...

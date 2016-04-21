@@ -1,0 +1,260 @@
+extends ./layout/layout.jade
+
+block content
+  section.content
+    h3
+      | Panels
+      br
+      small Panels can contain almost any kind of element inside
+    // START row
+    .row
+      .col-lg-4
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            | Collapsible Panel
+            a.pull-right(href='#panelCollapsible', data-toggle='collapse')
+              em.fa.fa-minus
+              em.fa.fa-plus
+          .panel-wrapper.collapse.in#panelCollapsible
+            .panel-body
+              p
+                | Panel can be collapsed clicking on the chevron up/down icon on the top right corner
+            .panel-footer Panel Footer
+        // END panel
+      .col-lg-4
+        // START panel
+        .panel.panel-default
+          .panel-heading
+            | Initially collapsed Panel
+            a.pull-right.collapsed(href='#panelCollapseInitial', data-toggle='collapse')
+              em.fa.fa-minus
+              em.fa.fa-plus
+          // .panel-wrapper is the element to be collapsed
+          .panel-wrapper.collapse#panelCollapseInitial
+            .panel-body
+              p
+                | Initially collapsed panel has its body wrapped into
+                code .panel-body-wrap.collapse
+            .panel-footer Panel Footer
+        // END panel
+    // END row
+    
+    h4.page-header Panel Styles
+    // START row
+    .row
+      .col-lg-4
+        // START panel
+        .panel.panel-default
+          .panel-heading Default Panel
+          .panel-body
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          .panel-footer Panel Footer
+        // END panel
+      .col-lg-4
+        // START panel
+        .panel.panel-primary
+          .panel-heading Primary Panel
+          .panel-body
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          .panel-footer Panel Footer
+        // END panel
+      .col-lg-4
+        // START panel
+        .panel.panel-success
+          .panel-heading Success Panel
+          .panel-body
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          .panel-footer Panel Footer
+        // END panel
+    // END row
+    // START row
+    .row
+      .col-lg-4
+        // START panel
+        .panel.panel-info
+          .panel-heading Info Panel
+          .panel-body
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          .panel-footer Panel Footer
+        // END panel
+      .col-lg-4
+        // START panel
+        .panel.panel-warning
+          .panel-heading Warning Panel
+          .panel-body
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          .panel-footer Panel Footer
+        // END panel
+      .col-lg-4
+        // START panel
+        .panel.panel-danger
+          .panel-heading Danger Panel
+          .panel-body
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          .panel-footer Panel Footer
+        // END panel
+    // END row
+    // START row
+    .row
+      .col-lg-12
+        // START panel
+        .panel.panel-default
+          .panel-heading Collapsible Accordion Panel Group
+          .panel-body
+            #accordion.panel-group
+              // START panel
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseOne') Collapsible Group Item #1
+                #collapseOne.panel-collapse.collapse(style='height: 0px;')
+                  .panel-body
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                    | laborum.
+              // END panel
+              // START panel
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo') Collapsible Group Item #2
+                #collapseTwo.panel-collapse.collapse(style='height: 0px;')
+                  .panel-body
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                    | laborum.
+              // END panel
+              // START panel
+              .panel.panel-default
+                .panel-heading
+                  h4.panel-title
+                    a.collapsed(data-toggle='collapse', data-parent='#accordion', href='#collapseThree') Collapsible Group Item #3
+                #collapseThree.panel-collapse.collapse(style='height: 0px;')
+                  .panel-body
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                    | laborum.
+              // END panel
+        // END panel
+    // END row
+    // START row
+    .row
+      .col-lg-6
+        // START panel
+        .panel.panel-default
+          .panel-heading Basic Tabs
+          .panel-body
+            // Nav tabs
+            ul.nav.nav-tabs
+              li.active
+                a(href='#home', data-toggle='tab') Home
+              li
+                a(href='#profile', data-toggle='tab') Profile
+              li
+                a(href='#messages', data-toggle='tab') Messages
+              li
+                a(href='#settings', data-toggle='tab') Settings
+            // Tab panes
+            .tab-content
+              #home.tab-pane.fade.in.active
+                h4 Home Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              #profile.tab-pane.fade
+                h4 Profile Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              #messages.tab-pane.fade
+                h4 Messages Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              #settings.tab-pane.fade
+                h4 Settings Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        // END panel
+      .col-lg-6
+        // START panel
+        .panel.panel-default
+          .panel-heading Pill Tabs
+          .panel-body
+            // Nav tabs
+            ul.nav.nav-pills
+              li.active
+                a(href='#home-pills', data-toggle='tab') Home
+              li
+                a(href='#profile-pills', data-toggle='tab') Profile
+              li
+                a(href='#messages-pills', data-toggle='tab') Messages
+              li
+                a(href='#settings-pills', data-toggle='tab') Settings
+            // Tab panes
+            .tab-content
+              #home-pills.tab-pane.fade.in.active
+                h4 Home Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              #profile-pills.tab-pane.fade
+                h4 Profile Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              #messages-pills.tab-pane.fade
+                h4 Messages Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              #settings-pills.tab-pane.fade
+                h4 Settings Tab
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          // /.panel-body
+        // END panel
+    // END row
+    // START row
+    .row
+      .col-lg-4
+        .well
+          h4 Normal Well
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+      .col-lg-4
+        .well.well-lg
+          h4 Large Well
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+      .col-lg-4
+        .well.well-sm
+          h4 Small Well
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+    // END row
+    // START row
+    .row
+      .col-lg-12
+        .jumbotron
+          h1 Jumbotron
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            | Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.
+          p
+            a.btn.btn-primary.btn-lg(role='button') Learn more
+    // END row
+
+  
+  
+block scripts
+  // External Script goes here...

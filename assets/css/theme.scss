@@ -1,0 +1,921 @@
+@import 'theme-variables';
+@import '_mixins';
+
+// Set the text color depending on the background contrast
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return darken($base, 90%);
+  } @else {
+    @return lighten($base,100%);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Card
+// -----------------------------------------------------------------------------
+.card {
+	position: relative;
+	padding: 15px;
+	margin-bottom: 15px;
+	background: white;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+// -----------------------------------------------------------------------------
+// Collapsible Panel
+// -----------------------------------------------------------------------------
+.panel-heading {
+  a {
+    .fa {
+      display: none;
+    }
+    &:not(.collapsed) {
+      .fa-minus {
+        display: inline-block;
+      }
+    }
+  }
+  a.collapsed {
+    .fa-plus {
+      display: inline-block;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Burger Bar animation
+// -----------------------------------------------------------------------------
+.navbar-toggle {
+  border: none;
+  margin-right: 5px;
+  > span.icon-bar {
+    -webkit-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    background: lighten($base, 100%) !important;
+  }
+  &:focus, &:hover, &:active {
+    background: none !important;
+  }
+  &:not(.collapsed) {
+    > .icon-bar:nth-child(2) {
+      -webkit-transform-origin: top left;
+      -ms-transform-origin: top left;
+      transform-origin: top left;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    > .icon-bar:nth-child(3) {
+      display: none;
+    }
+    > .icon-bar:nth-child(4) {
+      -webkit-transform-origin: left bottom;
+      -ms-transform-origin: left bottom;
+      transform-origin: left bottom;
+      -webkit-transform: rotate(-45deg) translateY(6px) translateX(-6px);
+      -ms-transform: rotate(-45deg) translateY(6px) translateX(-6px);
+      transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Custom Form elements
+// -----------------------------------------------------------------------------
+/*** checkbox ***/
+.checkbox, .radio {
+  &.cus-inline { //- .checkbox.cus-inline
+    display: inline-block;
+    margin-right: 10px;
+  }
+  &.cus span {
+    @include border-radius(3px);
+  }
+  &.cus-rounded span {
+    @include border-radius(50%);
+  }
+  @at-root .radio { //- .radio.cus only (&.radio selects '.checkbox.radio')
+    &.cus span {
+      @include border-radius(50%);
+    }
+  }
+  &.cus, &.cus-rounded { //- .checkbox.cus, .checkbox.cus-rounded
+    label {
+      & {
+        position: relative;
+        padding: 0;
+        vertical-align: middle;
+      }
+      &:hover span {
+        border-color: $chk-color-base;
+      }
+      input {
+        & {
+          @include opacity(0);
+          margin: 0;
+        }
+        &:checked + span {
+          & {
+            background: $chk-color-base;
+            border: 0;
+          }
+          &::before {
+            display: block;
+          }
+        }
+        &:disabled + span {
+          background: lighten($chk-color-gray-base, 20%);
+          border: 0;
+        }
+      }
+      span {
+        & {
+          border: 1px solid lighten($chk-color-gray-base, 20%);
+          vertical-align: middle;
+          margin-right: 5px;
+          @include box(22px);
+          @include transition(all,ease-in-out,.2s);
+        }
+        &::before {
+          display: none;
+          padding: 4px;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+/*** switch ***/
+.switch {
+  & {
+    position: relative;
+    margin: 0;
+    display: inline-block;
+    @include dimension(44px, 22px);
+    background: $chk-color-bg;
+    -webkit-box-shadow: inset 0px 0px 6px 0px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow: inset 0px 0px 6px 0px rgba(50, 50, 50, 0.3);
+    box-shadow: inset 0px 0px 6px 0px rgba(50, 50, 50, 0.3);
+  }
+  &.rounded {
+    @include border-radius(11px);
+  }
+  &.rounded span {
+    & {
+      @include border-radius(50%);
+      @include dimension(18px, 18px);
+      margin: 2px;
+      outline: 0 !important;
+    }
+    &::before {
+      content: "";
+    }
+  }
+  input {
+    & {
+      @include opacity(0);
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+    &:checked + span {
+      right: 0;
+      left: auto;
+      background: $chk-color-base;
+      outline: 1px solid darken($chk-base, 5%);
+    }
+  }
+  span {
+    & {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      vertical-align: middle;
+      @include dimension(22px, 100%);
+      background: $chk-color-gray-base;
+      cursor: pointer;
+      outline: 1px solid grayscale($chk-base); //#D4D4D4
+    }
+    &::before {
+      display: block;
+      content: "| |";
+      color: white;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Hamburger
+// -----------------------------------------------------------------------------
+.hamburger {
+  & {
+    font: inherit;
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    transition-timing-function: linear;
+    transition-duration: .15s;
+    transition-property: opacity,-webkit-filter;
+    transition-property: opacity,filter;
+    transition-property: opacity,filter,-webkit-filter;
+    text-transform: none;
+    color: inherit;
+    border: 0;
+    background-color: transparent;
+    position: relative;
+  }
+  .hamburger-box {
+    & {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 25px 10px;
+      width: 40px;
+    }
+    input {
+      & {
+        @include opacity(0);
+        position: absolute;
+        left: 0;
+        top: 0;
+        @include box(100%);
+        margin: 0;
+        z-index: 3;
+        cursor: pointer;
+      }
+      &:checked + .hamburger-inner {
+        &:before {
+          -webkit-transform: translate3d(-4px,5px,0) rotate(-45deg) scaleX(0.7);
+          transform: translate3d(-4px,5px,0) rotate(-45deg) scaleX(0.7);
+        }
+        &:after {
+          -webkit-transform: translate3d(-4px,-5px,0) rotate(45deg) scaleX(0.7);
+          transform: translate3d(-4px,-5px,0) rotate(45deg) scaleX(0.7);
+        }
+      }
+    }
+    .hamburger-inner {
+      &, &:before, &:after {
+        position: absolute;
+        width: 20px;
+        height: 3px;
+        transition-timing-function: ease;
+        transition-duration: .15s;
+        transition-property: -webkit-transform;
+        transition-property: transform;
+        transition-property: transform,-webkit-transform;
+        border-radius: 4px;
+        background-color: #FFF;
+      }
+    }
+    .hamburger-inner {
+      & {
+        top: 50%;
+        display: block;
+        margin-top: -2px;
+      }
+      &:before, &:after {
+        display: block;
+        content: '';
+      }
+      &:before {
+        top: -10px;
+      }
+      &:after {
+        bottom: -10px;
+      }
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																GLOBAL DEFAULTS
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.btn,
+.panel,
+.panel-heading,
+.panel-group .panel,
+.alert,
+.modal-content,
+.navbar,
+.img-thumbnail,
+.nav-tabs > li > a,
+.nav-pills > li > a,
+.well,
+.jumbotron,
+.container .jumbotron,
+.container-fluid .jumbotron,
+.breadcrumb,
+.form-control,
+.input-group-addon,
+.progress,
+.label,
+.badge,
+.dropdown-menu,
+.popover,
+.tooltip-inner,
+.pagination a,
+pre,
+.checkbox.cus span,
+.list-group-item:first-child,
+.list-group-item:last-child {
+	@include border-radius(0px);
+}
+.well,
+.form-control,
+.has-success,
+.has-warning,
+.has-error {
+	&, .form-control {
+		@include box-shadow(none);
+	}
+}
+.form-control,
+.has-success,
+.has-warning,
+.has-error {
+	&, .form-control {
+		&:focus {
+			@include box-shadow(none);
+			border: none;
+			outline: 1px solid $base;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																		BUTTONS
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.btn {
+	&.btn-default {
+		& {
+			background-color: none;
+			border-color: lighten($base, 60%);
+		}
+		&:hover {
+			background-color: lighten($base, 80%);
+			border-color: lighten($base, 50%);
+		}
+	}
+	&.btn-primary {
+		& {
+			background-color: $glob-primary;
+			border-color: darken($glob-primary, 5%);
+			color: set-text-color($glob-primary);
+		}
+		&:hover {
+			background-color: lighten($glob-primary, 5%);
+			border-color: darken($glob-primary, 10%);
+		}
+	}
+	&.btn-inverse {
+		& {
+			background-color: $glob-inverse;
+			border-color: darken($glob-inverse, 5%);
+			color: set-text-color($glob-inverse);
+		}
+		&:hover {
+			background-color: lighten($glob-inverse, 5%);
+			border-color: darken($glob-inverse, 10%);
+		}
+	}
+	&.btn-success {
+		& {
+			background-color: $glob-success;
+			border-color: darken($glob-success, 5%);
+			color: set-text-color($glob-success);
+		}
+		&:hover {
+			background-color: lighten($glob-success, 5%);
+			border-color: darken($glob-success, 10%);
+		}
+	}
+	&.btn-info {
+		& {
+			background-color: $glob-info;
+			border-color: darken($glob-info, 5%);
+			color: set-text-color($glob-info);
+		}
+		&:hover {
+			background-color: lighten($glob-info, 5%);
+			border-color: darken($glob-info, 10%);
+		}
+	}
+	&.btn-warning {
+		& {
+			background-color: $glob-warning;
+			border-color: darken($glob-warning, 5%);
+			color: set-text-color($glob-warning);
+		}
+		&:hover {
+			background-color: lighten($glob-warning, 5%);
+			border-color: darken($glob-warning, 10%);
+		}
+	}
+	&.btn-danger {
+		& {
+			background-color: $glob-danger;
+			border-color: darken($glob-danger, 5%);
+			color: set-text-color($glob-danger);
+		}
+		&:hover {
+			background-color: lighten($glob-danger, 5%);
+			border-color: darken($glob-danger, 10%);
+		}
+	}
+}
+.btn-group {
+	&.open {
+		.dropdown-toggle {
+			@include box-shadow(none);
+		}
+		.btn-default {
+			background-color: lighten($base, 80%) !important;
+			border-color: lighten($base, 50%) !important;
+		}
+		.btn-primary {
+			background-color: lighten($glob-primary, 5%) !important;
+			border-color: darken($glob-primary, 10%) !important;
+		}
+		.btn-inverse {
+			background-color: lighten($glob-inverse, 5%) !important;
+			border-color: darken($glob-inverse, 10%) !important;
+		}
+		.btn-success {
+			background-color: lighten($glob-success, 5%) !important;
+			border-color: darken($glob-success, 10%) !important;
+		}
+		.btn-info {
+			background-color: lighten($glob-info, 5%) !important;
+			border-color: darken($glob-info, 10%) !important;
+		}
+		.btn-warning {
+			background-color: lighten($glob-warning, 5%) !important;
+			border-color: darken($glob-warning, 10%) !important;
+		}
+		.btn-danger {
+			background-color: lighten($glob-danger, 5%) !important;
+			border-color: darken($glob-danger, 10%) !important;
+		}
+	}
+}
+.open {
+	> .dropdown-menu {
+		@include box-shadow(0 1px 3px rgba(0,0,0,.175));
+		border: 0;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																		PANEL
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.panel {
+	& {
+		border-color: lighten($base, 60%);
+		> .panel-heading {
+			border-bottom: 0;
+		}
+	}
+	&.panel-default {
+		> .panel-heading {
+			& {
+				background: none;
+				border: 0;
+			}
+		}
+		.panel-wrapper, > .panel-body {
+			& {
+				position: relative;
+			}
+			&::before {
+				display: block;
+				content: " ";
+				height: 1px;
+				background-color: lighten($base, 60%);
+				position: absolute;
+				margin: 0 10px;
+				right: 0;
+				left: 0;
+				top: 0;
+			}
+		}
+	}
+	&.panel-primary {
+		> .panel-heading {
+			background: $glob-primary;
+			color: set-text-color($glob-primary);
+		}
+	}
+	&.panel-inverse {
+		> .panel-heading {
+			background: $glob-inverse;
+			color: set-text-color($glob-inverse);
+		}
+	}
+	&.panel-success {
+		> .panel-heading {
+			background: $glob-success;
+			color: set-text-color($glob-success);
+		}
+	}
+	&.panel-info {
+		> .panel-heading {
+			background: $glob-info;
+			color: set-text-color($glob-info);
+		}
+	}
+	&.panel-warning {
+		> .panel-heading {
+			background: $glob-warning;
+			color: set-text-color($glob-warning);
+		}
+	}
+	&.panel-danger {
+		> .panel-heading {
+			background: $glob-danger;
+			color: set-text-color($glob-danger);
+		}
+	}
+	.panel-footer {
+		background: lighten($base, 100%);
+		border-color: lighten($base, 60%);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																		NAVS
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.nav-tabs {
+	& {
+		border-color: lighten($base, 60%);
+	}
+	> li {
+		&.active {
+			> a {
+				&, &:focus, &:hover {
+					border-color: lighten($base, 60%);
+			    border-bottom-color: transparent;
+				}
+			}
+		}
+		> a {
+			&:hover {
+				border-bottom-color: lighten($base, 60%);
+			}
+		}
+	}
+	+ .tab-content {
+		border: 1px solid lighten($base, 60%);
+		border-top: 0;
+		padding: 5px 15px;
+	}
+}
+.nav-pills {
+	> li {
+		&.active {
+			> a {
+				&, &:focus, &:hover {
+					background-color: $glob-primary;
+				}
+			}
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																		PAGINATION
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.alert {
+	&.alert-success {
+		background-color: $glob-success;
+		border-color: darken($glob-success, 5%);
+		color: set-text-color($glob-success);
+		a {
+			color: darken($glob-success, 40%);
+		}
+	}
+	&.alert-info {
+		background-color: $glob-info;
+		border-color: darken($glob-info, 5%);
+		color: set-text-color($glob-info);
+		a {
+			color: darken($glob-info, 40%);
+		}
+	}
+	&.alert-warning {
+		background-color: $glob-warning;
+		border-color: darken($glob-warning, 5%);
+		color: set-text-color($glob-warning);
+		a {
+			color: darken($glob-warning, 40%);
+		}
+	}
+	&.alert-danger {
+		background-color: $glob-danger;
+		border-color: darken($glob-danger, 5%);
+		color: set-text-color($glob-danger);
+		a {
+			color: darken($glob-danger, 40%);
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																		PAGINATION
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.pagination {
+	> li {
+		> a, > span {
+			color: $base;
+			&:hover {
+				color: lighten($base, 10%);
+			}
+		}
+	}
+	.active {
+		> a {
+			&, &:focus, &:hover, > span, > span:focus, > span:hover {
+				background: $base;
+				border-color: $base;
+			}
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																		TOOLTIP
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.tooltip {
+	.tooltip-inner {
+		background-color: $base;
+		border-color: $base;
+	}
+	&.left .tooltip-arrow {
+		border-left-color: $base;
+	}
+	&.top .tooltip-arrow {
+		border-top-color: $base;
+	}
+	&.right .tooltip-arrow {
+		border-right-color: $base;
+	}
+	&.bottom .tooltip-arrow {
+		border-bottom-color: $base;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																	 POPOVER
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.popover {
+	@include box-shadow(0 0px 1px rgba(0,0,0,.2));
+	border: 0;
+	border-bottom: 1px solid $base;
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																	TYPOGRAPHY
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.text-primary {
+	color: $glob-primary;
+}
+.text-success {
+	color: $glob-success;
+}
+.text-info {
+	color: $glob-info;
+}
+.text-warning {
+	color: $glob-warning;
+}
+.text-danger {
+	color: $glob-danger;
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																	CONTEXT CLASSES
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.table {
+	> tbody, > tfoot, > thead {
+		> tr {
+			// success
+			&.success {
+				> td, > th {
+					background-color: $glob-success;
+					color: set-text-color($glob-success);
+				}
+			}
+			> td, > th {
+				&.success {
+					background-color: $glob-success;
+					color: set-text-color($glob-success);
+				}
+			}
+			// info
+			&.info {
+				> td, > th {
+					background-color: $glob-info;
+					color: set-text-color($glob-info);
+				}
+			}
+			> td, > th {
+				&.info {
+					background-color: $glob-info;
+					color: set-text-color($glob-info);
+				}
+			}
+			// warning
+			&.warning {
+				> td, > th {
+					background-color: $glob-warning;
+					color: set-text-color($glob-warning);
+				}
+			}
+			> td, > th {
+				&.warning {
+					background-color: $glob-warning;
+					color: set-text-color($glob-warning);
+				}
+			}
+			// danger
+			&.danger {
+				> td, > th {
+					background-color: $glob-danger;
+					color: set-text-color($glob-danger);
+				}
+			}
+			> td, > th {
+				&.danger {
+					background-color: $glob-danger;
+					color: set-text-color($glob-danger);
+				}
+			}
+		}
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																	PROGRESS BAR
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.progress-bar {
+	background-color: $base;
+}
+.progress-bar-success {
+	background-color: $glob-success;
+}
+.progress-bar-info {
+	background-color: $glob-info;
+}
+.progress-bar-warning {
+	background-color: $glob-warning;
+}
+.progress-bar-danger {
+	background-color: $glob-danger;
+}
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																	LABELS
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.label-success {
+	background-color: $glob-success;
+	color: set-text-color($glob-success);
+}
+.label-info {
+	background-color: $glob-info;
+	color: set-text-color($glob-info);
+}
+.label-warning {
+	background-color: $glob-warning;
+	color: set-text-color($glob-warning);
+}
+.label-danger {
+	background-color: $glob-danger;
+	color: set-text-color($glob-danger);
+}
+
+
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 																	FORM HAS
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+.has-success {
+	.checkbox,
+	.checkbox-inline,
+	.control-label,
+	.help-block,
+	.radio,
+	.radio-inline {
+		color: $glob-success;
+	}
+	&.checkbox,
+	&.checkbox-inline,
+	&.radio,
+	&.radio-inline {
+		label {
+			color: $glob-success;
+		}
+	}
+	.form-control {
+		border-color: $glob-success;
+	}
+}
+.has-warning {
+	.checkbox,
+	.checkbox-inline,
+	.control-label,
+	.help-block,
+	.radio,
+	.radio-inline {
+		color: $glob-warning;
+	}
+	&.checkbox,
+	&.checkbox-inline,
+	&.radio,
+	&.radio-inline {
+		label {
+			color: $glob-warning;
+		}
+	}
+	.form-control {
+		border-color: $glob-warning;
+	}
+}
+.has-error {
+	.checkbox,
+	.checkbox-inline,
+	.control-label,
+	.help-block,
+	.radio,
+	.radio-inline {
+		color: $glob-danger;
+	}
+	&.checkbox,
+	&.checkbox-inline,
+	&.radio,
+	&.radio-inline {
+		label {
+			color: $glob-danger;
+		}
+	}
+	.form-control {
+		border-color: $glob-danger;
+	}
+}
