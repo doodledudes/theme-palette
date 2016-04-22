@@ -47,8 +47,10 @@
 // Burger Bar animation
 // -----------------------------------------------------------------------------
 .navbar-toggle {
-  border: none;
-  margin-right: 5px;
+  & {
+    border: none;
+    margin-right: 5px;
+  }
   > span.icon-bar {
     -webkit-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275);
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275);
@@ -359,8 +361,14 @@ pre,
 // #############################################################################
 // -----------------------------------------------------------------------------
 .btn {
+  & {
+    border: 0;
+    border-bottom: 3px solid;
+  }
 	&.btn-default {
 		& {
+      outline: 1px solid lighten($base, 60%);
+      border-bottom: 3px solid;
 			background-color: none;
 			border-color: lighten($base, 60%);
 		}
@@ -489,7 +497,6 @@ pre,
 	& {
 		border-color: lighten($base, 60%);
 		> .panel-heading {
-			border-bottom: 0;
 		}
 	}
 	&.panel-default {
@@ -520,36 +527,42 @@ pre,
 		> .panel-heading {
 			background: $glob-primary;
 			color: set-text-color($glob-primary);
+      border-bottom: 3px solid darken($glob-primary, 10%);
 		}
 	}
 	&.panel-inverse {
 		> .panel-heading {
 			background: $glob-inverse;
 			color: set-text-color($glob-inverse);
+      border-bottom: 3px solid darken($glob-inverse, 10%);
 		}
 	}
 	&.panel-success {
 		> .panel-heading {
 			background: $glob-success;
 			color: set-text-color($glob-success);
+      border-bottom: 3px solid darken($glob-success, 10%);
 		}
 	}
 	&.panel-info {
 		> .panel-heading {
 			background: $glob-info;
 			color: set-text-color($glob-info);
+      border-bottom: 3px solid darken($glob-info, 10%);
 		}
 	}
 	&.panel-warning {
 		> .panel-heading {
 			background: $glob-warning;
 			color: set-text-color($glob-warning);
+      border-bottom: 3px solid darken($glob-warning, 10%);
 		}
 	}
 	&.panel-danger {
 		> .panel-heading {
 			background: $glob-danger;
 			color: set-text-color($glob-danger);
+      border-bottom: 3px solid darken($glob-danger, 10%);
 		}
 	}
 	.panel-footer {
@@ -575,6 +588,7 @@ pre,
 				&, &:focus, &:hover {
 					border-color: lighten($base, 60%);
 			    border-bottom-color: transparent;
+          border-top-width: 3px
 				}
 			}
 		}
@@ -596,6 +610,7 @@ pre,
 			> a {
 				&, &:focus, &:hover {
 					background-color: $glob-primary;
+          border-bottom: 3px solid darken($glob-primary, 10%);
 				}
 			}
 		}
@@ -611,6 +626,7 @@ pre,
 // #############################################################################
 // -----------------------------------------------------------------------------
 .alert {
+  border-bottom-width: 3px;
 	&.alert-success {
 		background-color: $glob-success;
 		border-color: darken($glob-success, 5%);
