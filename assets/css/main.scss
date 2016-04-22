@@ -1,6 +1,12 @@
 @import 'theme-variables';
 @import '_mixins';
-
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
+// 															SITE THEME VARIABLES
+// -----------------------------------------------------------------------------
+// #############################################################################
+// -----------------------------------------------------------------------------
 // regex sample
 // \ba\(\S*\'\)
 
@@ -63,15 +69,15 @@ body.freeze {
 // -----------------------------------------------------------------------------
 .navbar-default {
   & {
-    background-color: #333;
+    background-color: $navbar;
     border: 0;
   }
   .navbar-nav > li > a, .navbar-brand {
     & {
-      color: white;
+      color: $navtext;
     }
     &:hover, &:focus {
-      color: white;
+      color: darken($navtext, 20%);
     }
   }
 }
@@ -112,7 +118,7 @@ aside {
           a {
             padding-left: 48px;
             &:hover {
-              background-color: whitesmoke;
+              background-color: $subcathover;
             }
           }
         }
@@ -127,7 +133,7 @@ aside {
         &:hover {
           text-decoration: none;
           color: #333;
-          background-color: #B2EF85;
+          background-color: $cathover;
         }
         &:focus {
           text-decoration: none;
@@ -277,8 +283,8 @@ aside {
   padding-top: 50px;
   height: 100%;
   width: 250px;
-  background-color: #E8EBEC;
-  border-right: 1px solid #DDD;
+  background-color: $aside;
+  border-right: 1px solid $asideborder;
   overflow-x: hidden;
   overflow-y: auto;
   display: block;

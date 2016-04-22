@@ -1,11 +1,37 @@
 // -----------------------------------------------------------------------------
 // Theme Color Palette
 // -----------------------------------------------------------------------------
-$base                   : #50514E; //#50514E //-GREEN-#91DC5A
+$base                   : #50514E;
 $comb_1                 : #F25F5C;
 $comb_2                 : #FFE066;
 $comb_3                 : #247BA0;
 $comb_4                 : #70C1B3;
+
+// $base                   : #086788;
+// $comb_1                 : #07A0C3;
+// $comb_2                 : #F0C808;
+// $comb_3                 : #FFF1D0;
+// $comb_4                 : #DD1C1A;
+
+// $base                   : #17BEBB;
+// $comb_1                 : #2E282A;
+// $comb_2                 : #CD5334;
+// $comb_3                 : #EDB88B;
+// $comb_4                 : #FAD8D6;
+
+// $base                   : #2B2D42;
+// $comb_1                 : #8D99AE;
+// $comb_2                 : #EDF2F4;
+// $comb_3                 : #EF233C;
+// $comb_4                 : #D80032;
+
+// $base                   : #CC5803;
+// $comb_1                 : #E2711D;
+// $comb_2                 : #FF9505;
+// $comb_3                 : #FFB627;
+// $comb_4                 : #FFC971;
+
+
 
 // -----------------------------------------------------------------------------
 // Buttons
@@ -30,3 +56,23 @@ $chk-color-bg           : lighten($chk-base, 100%);
 // Burger Bar
 // -----------------------------------------------------------------------------
 $bar-color              : lighten($base, 100%);
+
+
+// -----------------------------------------------------------------------------
+// SITE THEME
+// -----------------------------------------------------------------------------
+// $navbar                 : #333;
+// $navtext                : #FFF;
+// $aside                  : #E8EBEC;
+// $asideborder            : #DDD;
+// $body                   : #F9F9F9;
+// $cathover               : #B2EF85;
+// $subcathover            : whitesmoke;
+
+$navbar                 : darken($base, 12%);
+$navtext                : #FFF;
+$aside                  : #E8EBEC;
+$asideborder            : #DDD;
+$body                   : #F9F9F9;
+$cathover               : #B2EF85;
+$subcathover            : whitesmoke;

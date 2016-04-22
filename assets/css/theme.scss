@@ -373,8 +373,7 @@ pre,
 	&, .form-control {
 		&:focus {
 			@include box-shadow(none);
-			border: none;
-			outline: 1px solid $base;
+			border-color: lighten($base, 30%);
 		}
 	}
 }
