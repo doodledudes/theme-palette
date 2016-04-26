@@ -54,6 +54,7 @@ var assets = [
     assetsBaseDir + '/images/**/*.*',
     assetsBaseDir + '/scripts/**/*.*',
     assetsBaseDir + '/vendor/bootstrap/dist/**/*.*',
+    assetsBaseDir + '/fonts/**/*.*',
     "!" + assetsBaseDir + '/css/*.scss',
 ];
 gulp.task('copy', function() {
