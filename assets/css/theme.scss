@@ -9,7 +9,7 @@
 // #############################################################################
 // -----------------------------------------------------------------------------
 @function set-text-color($color) {
-  @if (lightness($color) > 66) {
+  @if (lightness($color) > 66) { //- Note: Test this on the compiled css.
     @return darken($base, 90%);
   } @else {
     @return lighten($base,100%);
