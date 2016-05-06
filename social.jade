@@ -1,0 +1,25 @@
+extends ./layout/layout.jade
+
+block content
+  link(rel="import", href="components/news/tt-wgt-news.comp.html")
+  link(rel="import", href="components/profile/tt-wgt-profile.comp.html")
+  section.content
+    h3
+      | Social
+      br
+      small Webcomponents widget samples.
+    //- h3
+    .row
+      .col-md-6
+        h4 Profile
+        tt-wgt-profile
+      //- col-md-6
+      .col-md-6
+        h4 News
+        tt-wgt-news
+      //- col-md-6
+    //- row
+  
+  
+block scripts
+  // External Script goes here...

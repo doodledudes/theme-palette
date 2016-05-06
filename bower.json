@@ -19,6 +19,7 @@
     "jquery": "^2.2.3",
     "font-awesome": "^4.5.0",
     "jquery.cookie": "^1.4.1",
-    "Chart.js": "1.0.2"
+    "Chart.js": "1.0.2",
+    "webcomponentsjs": "^0.7.22"
   }
 }

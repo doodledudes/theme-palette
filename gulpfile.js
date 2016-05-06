@@ -56,6 +56,7 @@ var assets = [
     assetsBaseDir + '/vendor/bootstrap/dist/**/*.*',
     assetsBaseDir + '/fonts/**/*.*',
     "!" + assetsBaseDir + '/css/*.scss',
+    'components/**/*.*',
 ];
 gulp.task('copy', function() {
     gulp.src(assets, { base: './'})

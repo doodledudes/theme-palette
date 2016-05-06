@@ -1,0 +1,113 @@
+<template>
+  <style>
+    @import '//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css';
+    @import '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css';
+    .tt-wgt {
+      position: relative;
+      margin-bottom: 15px;
+      background: white;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    .tt-wgt-head {
+      position: relative;
+      min-height: 150px;
+      background: #4ABFAC url('components/profile/images/cover.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    .tt-wgt-head .tt-wgt-img-mask {
+      position: absolute;
+      left: 30px;
+      bottom: -60px;
+      margin: auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    .tt-wgt-name {
+      position: absolute;
+      top: 155px;
+      left: 185px;
+    }
+    .tt-wgt-name h4 {
+      font-weight: normal;
+      font-size: 18px;
+      font-weight: normal;
+      margin: 0;
+    }
+    .tt-wgt-name h4 small {
+      color: gray;
+    }
+    .tt-wgt-head img {
+      max-width: 100%;
+      min-width: 100%;
+    }
+    .tt-wgt-body {
+      padding: 75px 15px 10px;
+    }
+    .tt-wgt-footer {
+      padding: 25px 0;
+      background: #A3AFB7;
+      font-weight: 200;
+      color: white;
+      font-size: 18px;
+    }
+    .tt-wgt-footer span {
+      font-size: 14px;
+    }
+  </style>
+  <div class="tt-wgt _news">
+    <div class="tt-wgt-wrap">
+      <div class="tt-wgt-head">
+        <div class="tt-wgt-img-mask">
+          <img src="components/profile/images/img-profile.jpg" class="img-profile">
+        </div>
+        <div class="tt-wgt-name">
+          <h4>
+            Rodan Luzuriaga
+            <br>
+            <small>UI Developer / Designer</small>
+          </h4>
+        </div>
+      </div>
+      <div class="tt-wgt-body">
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="tt-wgt-footer">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <big>76</big> <span>Followers</span>
+          </div>
+          <div class="col-md-6 text-center">
+            <big>54</big> <span>Following</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  (function(){
+    var compDoc = document.currentScript.ownerDocument; //- document inside this component
+    var parentDoc = document; //- parent document outside shadow root
+
+    var template = compDoc.querySelector('template');
+    var proto = Object.create(HTMLElement.prototype);
+    var shadowRoot;
+
+    proto.createdCallback = function() {
+      shadowRoot = this.createShadowRoot();
+      var clone = parentDoc.importNode(template.content, true);
+      shadowRoot.appendChild(clone);
+
+      
+    }
+
+    parentDoc.registerElement('tt-wgt-profile', { prototype: proto });
+  })()
+</script>

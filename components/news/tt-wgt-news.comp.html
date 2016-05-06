@@ -1,0 +1,90 @@
+<template>
+  <style>
+    @import '//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css';
+    .tt-wgt {
+      position: relative;
+      margin-bottom: 15px;
+      background: white;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    .tt-wgt-head {
+      position: relative;
+    }
+    .tt-wgt-head img {
+      max-width: 100%;
+      min-width: 100%;
+    }
+    .tt-wgt-body {
+      padding: 0 15px 10px;
+    }
+    .tt-wgt-footer {
+      padding: 10px 15px;
+      background: #eee;
+      color: gray;
+      font-size: 12px;
+    }
+    .tt-wgt-btn._like {
+      color: #fff;
+      display: inline-block;
+      padding: 3px;
+      border-radius: 50%;
+      background: #F3889B;
+      width: 30px;
+      height: 30px;
+      font-size: 23px;
+      text-align: center;
+      position: absolute;
+      bottom: -11px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    .tt-wgt-btn._like:hover {
+      background: #D86C7F;
+    }
+  </style>
+  <div class="tt-wgt _news">
+    <div class="tt-wgt-wrap">
+      <div class="tt-wgt-head">
+        <img src="components/news/images/img-news.jpg" class="img-news">
+        <a href="#" class="tt-wgt-btn _like">
+          <i class="fa fa-heart-o"></i>
+        </a>
+      </div>
+      <div class="tt-wgt-body">
+        <h3>Lorem ipsum dolor sit amet</h3>
+        <p>
+          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="tt-wgt-footer">
+        <i class="fa fa-clock-o"></i> 2hrs ago
+        &nbsp;&nbsp;
+        <i class="fa fa-heart-o"></i> 24
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  (function(){
+    var compDoc = document.currentScript.ownerDocument; //- document inside this component
+    var parentDoc = document; //- parent document outside shadow root
+
+    var template = compDoc.querySelector('template');
+    var proto = Object.create(HTMLElement.prototype);
+    var shadowRoot;
+
+    proto.createdCallback = function() {
+      shadowRoot = this.createShadowRoot();
+      var clone = parentDoc.importNode(template.content, true);
+      shadowRoot.appendChild(clone);
+
+    }
+
+    parentDoc.registerElement('tt-wgt-news', { prototype: proto });
+  })()
+</script>
