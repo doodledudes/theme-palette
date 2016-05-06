@@ -1,0 +1,201 @@
+<template>
+  <style>
+    @import '//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css';
+    .tt-wgt {
+      position: relative;
+      margin-bottom: 15px;
+      background: white;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    .tt-wgt-title {
+      padding: 10px 15px;
+      background: #E8EBEC;
+    }
+    .tt-wgt-title ul {
+      float: right;
+      font-size: 18px;
+      position: relative;
+      cursor: pointer;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .tt-wgt-title .btn-settings {
+      color: #bbb;
+    }
+    .tt-wgt-title .btn-settings:hover {
+      color: gray;
+    }
+    .tt-wgt-title .settings {
+      opacity: 0;
+      transition: all ease-in-out .3s;
+      overflow: hidden;
+
+      position: absolute;
+      right: 0;
+      white-space: nowrap;
+      background: white;
+      z-index: 1;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    .tt-wgt-title .settings a {
+      display: block;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 5px 23px 5px 10px;
+      color: dimgrey;
+    }
+    .tt-wgt-title .settings a:hover {
+      background: #eee;
+    }
+    .tt-wgt-title .settings a i {
+      color: #bbb;
+    }
+    .tt-wgt-title a:hover {
+      color: gray;
+    }
+    .tt-wgt-body {
+      padding: 10px 0;
+    }
+    .tt-wgt-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tt-wgt-body ul li a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+    .tt-wgt-body ul li a:hover {
+      background: #F9F9F9;
+    }
+    .tt-wgt-body ul li a i.online {
+      float: none;
+    }
+    .tt-wgt-body ul li a i.online.true {
+      color: #91DC5A;
+    }
+    .tt-wgt-body ul li a i.online.false {
+      color: #ddd;
+    }
+    .tt-wgt-body ul li a i.favorite {
+      position: absolute;
+      right: 15px;
+      color: #ccc;
+      font-size: 18px;
+    }
+    .tt-wgt-body ul li a i.favorite.true:before {
+      content: "\f005";
+      color: #ECD61E;
+    }
+    .tt-wgt-footer {
+      padding: 10px 15px;
+      border-top: 1px solid #ddd;
+      font-weight: 200;
+      font-size: 12px;
+    }
+    .online-indicator {
+      color: #91DC5A;
+    }
+  </style>
+  <div class="tt-wgt _news">
+    <div class="tt-wgt-wrap">
+      <div class="tt-wgt-title">
+        <big>Contacts</big>
+        <ul>
+          <li>
+            <a href="#" class="btn-settings">
+              <i class="fa fa-cog"></i>
+            </a>
+            <div class="settings">
+              <a href="#">
+                <i class="fa fa-cogs"></i> Option 1
+              </a>
+              <a href="#">
+                <i class="fa fa-trash-o"></i> Option 2
+              </a>
+              <a href="#">
+                <i class="fa fa-share-alt"></i> Option 3
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tt-wgt-body">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="online false fa fa-circle-o"></i>&nbsp;
+              Rodan Luzuriaga
+              <i class="favorite true fa fa-star-o"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="online true fa fa-circle"></i>&nbsp;
+              Mark Santos
+              <i class="favorite fa fa-star-o"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="online true fa fa-circle"></i>&nbsp;
+              Julius Balque
+              <i class="favorite fa fa-star-o"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="online true fa fa-circle"></i>&nbsp;
+              Laurence Hernandez
+              <i class="favorite fa fa-star-o"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="online false fa fa-circle-o"></i>&nbsp;
+              Jeremi Serrano
+              <i class="favorite fa fa-star-o"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tt-wgt-footer">
+        <i class="fa fa-circle online-indicator"></i> <span>Online</span> <span>( 3 )</span>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  (function(){
+    var compDoc = document.currentScript.ownerDocument; //- document inside this component
+    var parentDoc = document; //- parent document outside shadow root
+
+    var template = compDoc.querySelector('template');
+    var proto = Object.create(HTMLElement.prototype);
+    var shadowRoot;
+
+    proto.createdCallback = function() {
+      shadowRoot = this.createShadowRoot();
+      var clone = parentDoc.importNode(template.content, true);
+      shadowRoot.appendChild(clone);
+
+      // toggle Settings buttons
+      var btnSettings = shadowRoot.querySelector('.tt-wgt-title .btn-settings');
+      var settingsDropdown = shadowRoot.querySelector('.tt-wgt-title .settings');
+      btnSettings.onclick = function() {
+        settingsDropdown.style.opacity = 1;
+      };
+      btnSettings.onblur = function() {
+        settingsDropdown.style.opacity = 0;
+      };
+    }
+
+    parentDoc.registerElement('tt-wgt-contacts', { prototype: proto });
+  })()
+</script>

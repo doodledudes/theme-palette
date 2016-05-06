@@ -3,6 +3,7 @@ extends ./layout/layout.jade
 block content
   link(rel="import", href="components/news/tt-wgt-news.comp.html")
   link(rel="import", href="components/profile/tt-wgt-profile.comp.html")
+  link(rel="import", href="components/contacts/tt-wgt-contacts.comp.html")
   section.content
     h3
       | Social
@@ -14,6 +15,12 @@ block content
         h4 Profile
         tt-wgt-profile
       //- col-md-6
+      .col-md-6
+        h4 Contacts
+        tt-wgt-contacts
+      //- col-md-6
+    //- row
+    .row
       .col-md-6
         h4 News
         tt-wgt-news
