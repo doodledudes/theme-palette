@@ -29,6 +29,8 @@
     }
     .tt-wgt-title .settings {
       opacity: 0;
+      display: none;
+      -webkit-transition: all ease-in-out .3s;
       transition: all ease-in-out .3s;
       overflow: hidden;
 
@@ -189,10 +191,16 @@
       var btnSettings = shadowRoot.querySelector('.tt-wgt-title .btn-settings');
       var settingsDropdown = shadowRoot.querySelector('.tt-wgt-title .settings');
       btnSettings.onclick = function() {
-        settingsDropdown.style.opacity = 1;
+        settingsDropdown.style.display = "block";
+        setTimeout(function() {
+          settingsDropdown.style.opacity = 1;
+        },40);
       };
       btnSettings.onblur = function() {
         settingsDropdown.style.opacity = 0;
+        setTimeout(function() {
+          settingsDropdown.style.display = "none";
+        },300)
       };
     }
 
