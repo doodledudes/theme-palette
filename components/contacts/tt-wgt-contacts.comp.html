@@ -190,7 +190,8 @@
       // toggle Settings buttons
       var btnSettings = shadowRoot.querySelector('.tt-wgt-title .btn-settings');
       var settingsDropdown = shadowRoot.querySelector('.tt-wgt-title .settings');
-      btnSettings.onclick = function() {
+      btnSettings.onclick = function(e) {
+        e.preventDefault();
         settingsDropdown.style.display = "block";
         setTimeout(function() {
           settingsDropdown.style.opacity = 1;

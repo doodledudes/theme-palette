@@ -76,7 +76,8 @@ var bower = [
     '!' + bowerBaseDir + '/font-awesome/less/**', // Exclude 'less' folder
     '!' + bowerBaseDir + '/font-awesome/*.json', // Exclude '.json' files
     '!' + bowerBaseDir + '/font-awesome/*.txt', // Exclude '.txt' files
-    bowerBaseDir + '/Chart.js/**/*.*'
+    bowerBaseDir + '/Chart.js/**/*.*',
+    bowerBaseDir + '/webcomponentsjs/**/*.*',
 ];
 gulp.task('bower', function() {
     gulp.src(bower, { base: './'})
