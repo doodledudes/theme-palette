@@ -1,20 +1,22 @@
-var gulp = require('gulp');
-var clean = require('gulp-clean');
-var jade = require('gulp-jade');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var exec = require('child_process').exec;
+var gulp          = require('gulp');
+var clean         = require('gulp-clean');
+var jade          = require('gulp-jade');
+var sass          = require('gulp-sass');
+var browserSync   = require('browser-sync').create();
+var autoprefixer  = require('gulp-autoprefixer');
+var exec          = require('child_process').exec;
+
+var root = '../ttstatic.github.io/';
+var dir = 'themepalette';
 
 // - ###########################################################################
 // - Runs the 'clean' task first before it run all other tasks.
 // - ###########################################################################
-gulp.task('default', ['clean'], function() {
-    exec('gulp main', function() {
-        console.log('Static files are now copied in the "public" folder.');
-
-        // - Watchers
-        gulp.watch('assets/css/**/*.scss',['sass']);
-        gulp.watch('./**/*.jade',['jade']);
+gulp.task('default', ['clean'], function(cb) {
+    exec('gulp main', function(err,stdout,stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
     });
 });
 gulp.task('main', ['jade', 'sass', 'copy', 'bower']);
@@ -27,22 +29,24 @@ gulp.task('jade', function() {
      * Compile all Jade files except files with
      * file names that starts with an underscore('_').
      */
-    gulp.src(['./*.jade', '!**[^_]/*.jade'])
-        .pipe(jade({
-            doctype: 'html',
-            pretty: true
-        }))
-        .pipe(gulp.dest('public'));
+     return gulp.src(['./*.jade', '!**[^_]/*.jade'])
+       .pipe(jade({
+           doctype: 'html',
+           pretty: true
+       }))
+       .pipe(gulp.dest(root + dir))
+       .pipe(browserSync.stream());
 });
 
 // - ###########################################################################
 // - Compile SASS files to CSS
 // - ###########################################################################
 gulp.task('sass', function() {
-    gulp.src('assets/css/**/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('public/assets/css'));
+    return gulp.src('assets/css/**/*.scss')
+      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+      .pipe(autoprefixer())
+      .pipe(gulp.dest(root + dir + '/assets/css'))
+      .pipe(browserSync.stream());
 });
 
 // - ###########################################################################
@@ -60,7 +64,7 @@ var assets = [
 ];
 gulp.task('copy', function() {
     gulp.src(assets, { base: './'})
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest(root + dir));
 });
 
 // - ###########################################################################
@@ -81,13 +85,26 @@ var bower = [
 ];
 gulp.task('bower', function() {
     gulp.src(bower, { base: './'})
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest(root + dir));
 });
 
 // - ###########################################################################
 // - Clean task (deletes the public folder)
 // - ###########################################################################
 gulp.task('clean', function() {
-    return gulp.src('./public', { read: false })
-        .pipe(clean());
+    return gulp.src(root + dir, { read: false })
+        .pipe(clean({force: true}));
+});
+
+// - ###########################################################################
+// - Serve app and watch
+// - ###########################################################################
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: root + dir
+    }
+  });
+  gulp.watch('assets/css/**/*.scss', ['sass']);
+  gulp.watch('./**/*.jade',['jade']);
 });
