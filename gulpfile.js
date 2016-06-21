@@ -8,6 +8,10 @@ var exec          = require('child_process').exec;
 
 var root = '../ttstatic.github.io/';
 var dir = 'themepalette';
+var paths = {
+  jade: ['./*.jade', '!**[^_]/*.jade'],
+  scss: 'assets/css/**/*.scss'
+}
 
 // - ###########################################################################
 // - Runs the 'clean' task first before it run all other tasks.
@@ -29,7 +33,7 @@ gulp.task('jade', function() {
      * Compile all Jade files except files with
      * file names that starts with an underscore('_').
      */
-     return gulp.src(['./*.jade', '!**[^_]/*.jade'])
+     return gulp.src(paths.jade)
        .pipe(jade({
            doctype: 'html',
            pretty: true
@@ -42,7 +46,7 @@ gulp.task('jade', function() {
 // - Compile SASS files to CSS
 // - ###########################################################################
 gulp.task('sass', function() {
-    return gulp.src('assets/css/**/*.scss')
+    return gulp.src(paths.scss)
       .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
       .pipe(autoprefixer())
       .pipe(gulp.dest(root + dir + '/assets/css'))
